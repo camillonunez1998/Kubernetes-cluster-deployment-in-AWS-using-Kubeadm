@@ -1,0 +1,13 @@
+{
+  "database": {
+    "host": "postgres-service",
+    "port": 5432,
+    "name": "myapp_db",
+    "user": "admin_user",
+    "timeout": "30s"
+  },
+  "features": {
+    "caching": true,
+    "max_connections": 100
+  }
+}
