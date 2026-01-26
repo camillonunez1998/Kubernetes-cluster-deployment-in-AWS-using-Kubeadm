@@ -1,0 +1,14 @@
+configMapGenerator:
+- name: game-config-5
+  options:
+    labels:
+      game-config: config-5
+  files:
+  - game-special-key=configure-pod-container/configmap/game.properties
+---
+# kustomization.yaml contents for creating a ConfigMap from literals
+configMapGenerator:
+- name: special-config-2
+  literals:
+  - special.how=very
+  - special.type=charm
