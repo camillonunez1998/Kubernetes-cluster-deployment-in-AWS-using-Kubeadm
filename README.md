@@ -4,6 +4,7 @@ The objective of this project is to develop the tutorials in the official docume
 
 # To improve
 
+- Definir una VPC propia.
 
 ## Preliminaries
 
@@ -17,39 +18,30 @@ You will normally require a very demanding infrastructure when administering a c
 
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
-- Paste the file setup-k8s.sh in the main node.
-- Change permissions `chmod +x setup-k8s.sh`
-- Generate containerd default configuration (Amazon Linux sometimes creates it differently)
+- Check the MAC address of each node with `ip link show ens5` (or the name of the network interface indicated in the welcome banner of the ssh connection). You will obtian a number like *06:2b:c0:02:56:93*.
 
-    `sudo mkdir -p /etc/containerd`
-    
-    `containerd config default | sudo tee /etc/containerd/config.toml`
+- Check the product_UUID with `sudo cat /sys/class/dmi/id/product_uuid`. All the MACs and product_UUID's must be different.
 
-- Configure the `SystemdCgroup`
+- To disable Swap memory use `sudo swapoff -a`, although normally it is disabled by default. You can check it with `swapon --show`, if there is no answer swap is off.
 
-    `sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml`
+- Run the script `./admin_with_kubeadm/install_containerd.sh` in the main node to install the container runtime. Use `chmod +x install_containerd.sh` and `sudo bash install_containerd.sh` (or just `./install_containerd.sh`) to allow execution and execute respectively. Do it in every node.
 
-- Restart Containerd
+- Run the script `./admin_with_kubeadm/install_k8s_tools.sh` in every node to install the combo *kubectl + kubelet + kubeadm*.
 
-    `sudo systemctl restart containerd`
-
-    `sudo systemctl enable containerd`
-
-- Execute the script `./setup-k8s.sh`
+- Configure a *cgroup driver*: We need to make sure te container runtime and the kubelet component match the *cgroup* driver.
 
 ### Creating cluster with kubeadm
 
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
-#### Objectives
-- Install a single control plane K8s cluster
-- Install a Pod network in the cluster so that the Pods can talk to each other
+#### Install a single control plane K8s cluster
 
-#### Steps
-
-- Initialize your contorl plane node 
+- Initialize your control plane node 
 
     `sudo kubectl init`
+
+
+#### Install a Pod network in the cluster so that the Pods can talk to each other
 
 ## Author
 
