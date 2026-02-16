@@ -28,7 +28,7 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 
 - To install the combo *kubectl + kubelet + kubeadm*, run the script `./admin_with_kubeadm/install_k8s_tools.sh` in every node.
 
-- Configure a *cgroup driver* (control group): We need to make sure te container runtime and the kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`
+- Configure a *cgroup driver* (control group): We need to make sure te container runtime and the kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`. Do it only in the main node.
 
 ### Creating cluster with kubeadm
 
@@ -38,7 +38,11 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-clu
 
 - Define a network setup for your pods. We defined this also in `./tasks/admin_with_kubeadm/kubeadm-config.yaml` with the CIDR *192.168.0.0/16* to make it clear that the pod network is fully isolated from the VPC network.
 
-- Install *conntrack* for the prechecks done by kubeadm. This is part of the linux kernel but Ubuntu image doesn't include it.
+- Install *conntrack* in every node for the prechecks done by kubeadm. This is part of the linux kernel but Ubuntu image doesn't include it.
+
+    `sudo apt update`
+
+    `sudo apt install conntrack -y`
 
 - Initialize your control plane node 
 
@@ -68,9 +72,25 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-clu
 
 - Now your cluster is ready to host the microservices of your application! To finish your session you can simply destroy your AWS resources with terraform (assuming you have already stopped all the resources from your applications).
 
-### Certificate management with kubeadm
+## Certificate management with kubeadm
 
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/
+
+### PKI certificates and requirements
+https://kubernetes.io/docs/setup/best-practices/certificates/ 
+
+#### How certificates are used by your cluster
+
+*Note:* There is a total of 10 mandatory certificates when creating a cluster manually (modulo the number of nodes).
+
+*Dibujo de la dinamica de los certificados*
+
+#### Certificates for user accounts
+
+*Dibujo* (son las cuentas de la componentes internas del cluser + los usuarios humanos).
+
+*Note:* Every service that is created inside the cluster is also assigned a Service Account.
+
 
 ## Author
 
