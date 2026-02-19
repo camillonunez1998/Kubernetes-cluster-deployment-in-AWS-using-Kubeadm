@@ -10,6 +10,12 @@ The objective of this project is to develop the tutorials in the official docume
 
 You will normally require a very demanding infrastructure when administering a cluster with *kubeadm*, in that case you can use the infrastructure defined in `tasks/infrastructure/main.tf`.
 
+AWS expects credentials in `~/.aws/credentials` in the following format
+
+`[default]`<br>
+`aws_access_key_id = *****************`<br>
+`aws_secret_access_key = ******************`
+
 # Administer a cluster
 
 ## Administering with kubeadm

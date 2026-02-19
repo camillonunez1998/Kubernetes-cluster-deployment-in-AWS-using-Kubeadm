@@ -5,7 +5,7 @@ provider "aws" {
 
 variable "instance_type_master" { default = "t3.medium" } # 2 vCPUs, 4 GB RAM
 variable "instance_type_worker" { default = "t3.small" } # 2 GB RAM
-variable "ami_id"               { default = "ami-02e70da87e10e9324"}
+variable "ami_id"               { default = "ami-02e70da87e10e9324"} # Ubuntu AMI
 
 # --- Network Resources ---
 
