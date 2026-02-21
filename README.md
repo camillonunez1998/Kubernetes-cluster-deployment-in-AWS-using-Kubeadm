@@ -99,11 +99,11 @@ https://kubernetes.io/docs/setup/best-practices/certificates/
 
 ### Choosing encryption algorithm (only for PKI certs, no secrets in general)
 
-This is specified in `kubeadm-config.yaml`.
+This is specified in `kubeadm-config.yaml`. We used RSA3072.
 
 ### Choosing certificate validity perido
 
-This is specified in `kubeadm-config.yaml`.
+This is specified in `kubeadm-config.yaml`. We used 8760h for regular certs, and 87600h for CAs.
 
 
 ## Author
