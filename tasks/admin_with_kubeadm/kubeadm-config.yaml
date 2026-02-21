@@ -1,8 +1,16 @@
-kind: ClusterConfiguration
 apiVersion: kubeadm.k8s.io/v1beta4
+kind: ClusterConfiguration
+certificateValidityPeriod: 8760h
+caCertificateValidityPeriod: 87600h
+encryptionAlgorithm: RSA-3072
 networking:
   podSubnet: "192.168.0.0/16"
 ---
-kind: KubeletConfiguration
 apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
 cgroupDriver: systemd
+---
+apiVersion: kubeadm.k8s.io/v1beta4
+kind: UpgradeConfiguration
+apply:
+  kubernetesVersion: "v1.31.14"

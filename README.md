@@ -97,6 +97,14 @@ https://kubernetes.io/docs/setup/best-practices/certificates/
 
 *Note:* Every service that is created inside the cluster is also assigned a Service Account.
 
+### Choosing encryption algorithm (only for PKI certs, no secrets in general)
+
+This is specified in `kubeadm-config.yaml`.
+
+### Choosing certificate validity perido
+
+This is specified in `kubeadm-config.yaml`.
+
 
 ## Author
 
