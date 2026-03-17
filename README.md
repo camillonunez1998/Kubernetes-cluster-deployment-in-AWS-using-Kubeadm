@@ -1,20 +1,31 @@
 # Project
 
-The objective of this project is to develop the tutorials in the official documentation of Kubernetes.
+The objective of this project is to bootstrap a kubernetes cluster with Kubeadm using AWS as cloud platform.
 
-# To improve
-
-- Definir una VPC propia.
+## Requisites
+- Having installed terraform in your system (version **???**. works well).
 
 ## Preliminaries
 
-You will normally require a very demanding infrastructure when administering a cluster with *kubeadm*, in that case you can use the infrastructure defined in `tasks/infrastructure/main.tf`.
+The first step is to build the infrastructure. for simplicity, we will make use of one Master node, and two Worker nodes. The infrastructure defined in `tasks/infrastructure/main.tf` provides it.
 
-AWS expects credentials in `~/.aws/credentials` in the following format
+To deploy it, make sure you have your AWS credentials in `~/.aws/credentials` in the format:
 
 `[default]`<br>
 `aws_access_key_id = *****************`<br>
 `aws_secret_access_key = ******************`
+
+You will also need an ssh key `~/.ssh/daily-key`. This key will be necessary to tunnel with machines within the cluster.  
+
+Then, within `tasks/infrastructure/main.tf` execute:
+- `terraform init`
+- `terraform apply` 
+
+Once you've done this, you will have the following VPC architecture available.
+
+**Note:** When terraform finishes creating the infrastructure, it will print the Public IP address of all the VMs.
+
+**Imagen de la arquitectura de la VPC**
 
 # Administer a cluster
 
