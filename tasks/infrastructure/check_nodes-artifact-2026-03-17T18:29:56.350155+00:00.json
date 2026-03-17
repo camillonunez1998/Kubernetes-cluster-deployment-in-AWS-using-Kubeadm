@@ -1,0 +1,596 @@
+{
+    "plays": [
+        {
+            "___progress": "100%",
+            "__changed": 3,
+            "__failed": 0,
+            "__ignored": 0,
+            "__in progress": 0,
+            "__ok": 9,
+            "__percent_complete": 100,
+            "__play_name": "Verify connection to AWS K8s nodes",
+            "__progress": "Complete",
+            "__skipped": 0,
+            "__task_count": 9,
+            "__unreachable": 0,
+            "name": "Verify connection to AWS K8s nodes",
+            "pattern": "all",
+            "play": "Verify connection to AWS K8s nodes",
+            "play_pattern": "all",
+            "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+            "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+            "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "3s",
+                    "__host": "k8s-master",
+                    "__number": 0,
+                    "__result": "Ok",
+                    "__task": "1. Confirm SSH and Python availability",
+                    "__task_action": "ansible.builtin.ping",
+                    "duration": 3.450478,
+                    "end": "2026-03-17T18:29:54.468943+00:00",
+                    "event_loop": null,
+                    "host": "k8s-master",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-master",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "data": "pong"
+                            }
+                        },
+                        "ping": "pong"
+                    },
+                    "resolved_action": "ansible.builtin.ping",
+                    "start": "2026-03-17T18:29:51.018465+00:00",
+                    "task": "1. Confirm SSH and Python availability",
+                    "task_action": "ansible.builtin.ping",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:7",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000006",
+                    "uuid": "6f61ec00-e32e-4d17-b9ed-ddd96464b30a"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "3s",
+                    "__host": "k8s-worker-0",
+                    "__number": 1,
+                    "__result": "Ok",
+                    "__task": "1. Confirm SSH and Python availability",
+                    "__task_action": "ansible.builtin.ping",
+                    "duration": 3.437733,
+                    "end": "2026-03-17T18:29:54.461610+00:00",
+                    "event_loop": null,
+                    "host": "k8s-worker-0",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-worker-0",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "data": "pong"
+                            }
+                        },
+                        "ping": "pong"
+                    },
+                    "resolved_action": "ansible.builtin.ping",
+                    "start": "2026-03-17T18:29:51.023877+00:00",
+                    "task": "1. Confirm SSH and Python availability",
+                    "task_action": "ansible.builtin.ping",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:7",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000006",
+                    "uuid": "15eee8f3-70dc-4563-be31-b39a57e773e1"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "3s",
+                    "__host": "k8s-worker-1",
+                    "__number": 2,
+                    "__result": "Ok",
+                    "__task": "1. Confirm SSH and Python availability",
+                    "__task_action": "ansible.builtin.ping",
+                    "duration": 3.412896,
+                    "end": "2026-03-17T18:29:54.459605+00:00",
+                    "event_loop": null,
+                    "host": "k8s-worker-1",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-worker-1",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "data": "pong"
+                            }
+                        },
+                        "ping": "pong"
+                    },
+                    "resolved_action": "ansible.builtin.ping",
+                    "start": "2026-03-17T18:29:51.046709+00:00",
+                    "task": "1. Confirm SSH and Python availability",
+                    "task_action": "ansible.builtin.ping",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:7",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000006",
+                    "uuid": "5b57e388-dd14-49b3-871f-feb10997c02e"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "2s",
+                    "__host": "k8s-master",
+                    "__number": 3,
+                    "__result": "Ok",
+                    "__task": "2. Check remote uptime and kernel version",
+                    "__task_action": "ansible.builtin.command",
+                    "duration": 1.620668,
+                    "end": "2026-03-17T18:29:56.093385+00:00",
+                    "event_loop": null,
+                    "host": "k8s-master",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-master",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "changed": true,
+                        "cmd": [
+                            "uname",
+                            "-a"
+                        ],
+                        "delta": "0:00:00.003578",
+                        "end": "2026-03-17 18:29:55.919276",
+                        "invocation": {
+                            "module_args": {
+                                "_raw_params": "uname -a",
+                                "_uses_shell": false,
+                                "argv": null,
+                                "chdir": null,
+                                "creates": null,
+                                "executable": null,
+                                "expand_argument_vars": true,
+                                "removes": null,
+                                "stdin": null,
+                                "stdin_add_newline": true,
+                                "strip_empty_ends": true
+                            }
+                        },
+                        "msg": "",
+                        "rc": 0,
+                        "start": "2026-03-17 18:29:55.915698",
+                        "stderr": "",
+                        "stderr_lines": [],
+                        "stdout": "Linux ip-10-0-1-91 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux",
+                        "stdout_lines": [
+                            "Linux ip-10-0-1-91 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux"
+                        ]
+                    },
+                    "resolved_action": "ansible.builtin.command",
+                    "start": "2026-03-17T18:29:54.472717+00:00",
+                    "task": "2. Check remote uptime and kernel version",
+                    "task_action": "ansible.builtin.command",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:10",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000007",
+                    "uuid": "fb3e8693-d7b9-49dd-9626-afb8126355d3"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "2s",
+                    "__host": "k8s-worker-0",
+                    "__number": 4,
+                    "__result": "Ok",
+                    "__task": "2. Check remote uptime and kernel version",
+                    "__task_action": "ansible.builtin.command",
+                    "duration": 1.622784,
+                    "end": "2026-03-17T18:29:56.100172+00:00",
+                    "event_loop": null,
+                    "host": "k8s-worker-0",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-worker-0",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "changed": true,
+                        "cmd": [
+                            "uname",
+                            "-a"
+                        ],
+                        "delta": "0:00:00.003837",
+                        "end": "2026-03-17 18:29:55.929494",
+                        "invocation": {
+                            "module_args": {
+                                "_raw_params": "uname -a",
+                                "_uses_shell": false,
+                                "argv": null,
+                                "chdir": null,
+                                "creates": null,
+                                "executable": null,
+                                "expand_argument_vars": true,
+                                "removes": null,
+                                "stdin": null,
+                                "stdin_add_newline": true,
+                                "strip_empty_ends": true
+                            }
+                        },
+                        "msg": "",
+                        "rc": 0,
+                        "start": "2026-03-17 18:29:55.925657",
+                        "stderr": "",
+                        "stderr_lines": [],
+                        "stdout": "Linux ip-10-0-1-54 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux",
+                        "stdout_lines": [
+                            "Linux ip-10-0-1-54 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux"
+                        ]
+                    },
+                    "resolved_action": "ansible.builtin.command",
+                    "start": "2026-03-17T18:29:54.477388+00:00",
+                    "task": "2. Check remote uptime and kernel version",
+                    "task_action": "ansible.builtin.command",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:10",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000007",
+                    "uuid": "1fdb1232-aa74-4482-9746-85758aeecd6f"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "2s",
+                    "__host": "k8s-worker-1",
+                    "__number": 5,
+                    "__result": "Ok",
+                    "__task": "2. Check remote uptime and kernel version",
+                    "__task_action": "ansible.builtin.command",
+                    "duration": 1.620066,
+                    "end": "2026-03-17T18:29:56.105768+00:00",
+                    "event_loop": null,
+                    "host": "k8s-worker-1",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-worker-1",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "changed": true,
+                        "cmd": [
+                            "uname",
+                            "-a"
+                        ],
+                        "delta": "0:00:00.004249",
+                        "end": "2026-03-17 18:29:55.946959",
+                        "invocation": {
+                            "module_args": {
+                                "_raw_params": "uname -a",
+                                "_uses_shell": false,
+                                "argv": null,
+                                "chdir": null,
+                                "creates": null,
+                                "executable": null,
+                                "expand_argument_vars": true,
+                                "removes": null,
+                                "stdin": null,
+                                "stdin_add_newline": true,
+                                "strip_empty_ends": true
+                            }
+                        },
+                        "msg": "",
+                        "rc": 0,
+                        "start": "2026-03-17 18:29:55.942710",
+                        "stderr": "",
+                        "stderr_lines": [],
+                        "stdout": "Linux ip-10-0-1-31 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux",
+                        "stdout_lines": [
+                            "Linux ip-10-0-1-31 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux"
+                        ]
+                    },
+                    "resolved_action": "ansible.builtin.command",
+                    "start": "2026-03-17T18:29:54.485702+00:00",
+                    "task": "2. Check remote uptime and kernel version",
+                    "task_action": "ansible.builtin.command",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:10",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000007",
+                    "uuid": "a45332c9-c346-43bf-a877-097bfb2c0934"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "k8s-master",
+                    "__number": 6,
+                    "__result": "Ok",
+                    "__task": "3. Print node information",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.0281,
+                    "end": "2026-03-17T18:29:56.143210+00:00",
+                    "event_loop": null,
+                    "host": "k8s-master",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-master",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Node k8s-master is running: Linux ip-10-0-1-91 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux"
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2026-03-17T18:29:56.115110+00:00",
+                    "task": "3. Print node information",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:14",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000008",
+                    "uuid": "2a4d0e90-3687-4299-9c61-3248d6e7378d"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "k8s-worker-0",
+                    "__number": 7,
+                    "__result": "Ok",
+                    "__task": "3. Print node information",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.024851,
+                    "end": "2026-03-17T18:29:56.146818+00:00",
+                    "event_loop": null,
+                    "host": "k8s-worker-0",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-worker-0",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Node k8s-worker-0 is running: Linux ip-10-0-1-54 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux"
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2026-03-17T18:29:56.121967+00:00",
+                    "task": "3. Print node information",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:14",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000008",
+                    "uuid": "8de95017-e258-47c5-b237-9ffdc348fa75"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "k8s-worker-1",
+                    "__number": 8,
+                    "__result": "Ok",
+                    "__task": "3. Print node information",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.021032,
+                    "end": "2026-03-17T18:29:56.152756+00:00",
+                    "event_loop": null,
+                    "host": "k8s-worker-1",
+                    "play": "Verify connection to AWS K8s nodes",
+                    "play_pattern": "all",
+                    "play_uuid": "2601f8eb-dade-1421-d2a7-000000000004",
+                    "playbook": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml",
+                    "playbook_uuid": "72108413-249e-49f8-88f3-95828eb7883e",
+                    "remote_addr": "k8s-worker-1",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Node k8s-worker-1 is running: Linux ip-10-0-1-31 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux"
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2026-03-17T18:29:56.131724+00:00",
+                    "task": "3. Print node information",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml:14",
+                    "task_uuid": "2601f8eb-dade-1421-d2a7-000000000008",
+                    "uuid": "3b293732-aba4-4ded-8cf6-62dcfd34c43d"
+                }
+            ],
+            "uuid": "2601f8eb-dade-1421-d2a7-000000000004"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/inventory.ini"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/check_nodes.yaml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure"
+            },
+            "ansible-runner": {
+                "job-events": false
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/student/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "enable-prompts": false,
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "quay.io/ansible/creator-ee:latest",
+                "pull": {
+                    "policy": "always"
+                }
+            },
+            "format": "yaml",
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "interactive",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.job-events": "Defaults",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Not set",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Previous cli command",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Previous cli command",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.enable-prompts": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Settings file",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Settings file",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Settings file",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Settings file",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.format": "Defaults",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Defaults",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "/home/student/Kubernetes-cluster-deployment-in-AWS-using-Kubeadm/tasks/infrastructure/ansible-navigator.yaml",
+        "settings_file_source": "Search path"
+    },
+    "status": "successful",
+    "status_color": 10,
+    "stdout": [
+        "",
+        "PLAY [Verify connection to AWS K8s nodes] **************************************",
+        "",
+        "TASK [1. Confirm SSH and Python availability] **********************************",
+        "\u001b[0;32mok: [k8s-worker-1]\u001b[0m",
+        "\u001b[0;32mok: [k8s-worker-0]\u001b[0m",
+        "\u001b[0;32mok: [k8s-master]\u001b[0m",
+        "",
+        "TASK [2. Check remote uptime and kernel version] *******************************",
+        "\u001b[0;33mchanged: [k8s-master]\u001b[0m",
+        "\u001b[0;33mchanged: [k8s-worker-0]\u001b[0m",
+        "\u001b[0;33mchanged: [k8s-worker-1]\u001b[0m",
+        "",
+        "TASK [3. Print node information] ***********************************************",
+        "\u001b[0;32mok: [k8s-master] => {\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Node k8s-master is running: Linux ip-10-0-1-91 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [k8s-worker-0] => {\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Node k8s-worker-0 is running: Linux ip-10-0-1-54 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [k8s-worker-1] => {\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Node k8s-worker-1 is running: Linux ip-10-0-1-31 6.14.0-1018-aws #18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;33mk8s-master\u001b[0m                 : \u001b[0;32mok=3   \u001b[0m \u001b[0;33mchanged=1   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;33mk8s-worker-0\u001b[0m               : \u001b[0;32mok=3   \u001b[0m \u001b[0;33mchanged=1   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;33mk8s-worker-1\u001b[0m               : \u001b[0;32mok=3   \u001b[0m \u001b[0;33mchanged=1   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

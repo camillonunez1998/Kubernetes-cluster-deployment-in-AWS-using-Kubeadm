@@ -25,7 +25,7 @@ Once you've done this, you will have the following VPC architecture available.
 
 **Note:** When terraform finishes creating the infrastructure, it will print the Public IP address of all the VMs.
 
-**Imagen de la arquitectura de la VPC**
+![alt text](infra.svg)
 
 # Administer a cluster
 
@@ -45,9 +45,9 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 
 - To install the combo *kubectl + kubelet + kubeadm*, run the script `./admin_with_kubeadm/install_k8s_tools.sh` in every node.
 
-- Configure a *cgroup driver* (control group): We need to make sure te container runtime and the kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`. Do it only in the main node.
+- Configure a *cgroup driver* (control group): We need to make sure the container runtime and the kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`.
 
-### Creating cluster with kubeadm
+### Creating a cluster with kubeadm
 
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
@@ -115,6 +115,33 @@ This is specified in `kubeadm-config.yaml`. We used RSA3072.
 ### Choosing certificate validity perido
 
 This is specified in `kubeadm-config.yaml`. We used 8760h for regular certs, and 87600h for CAs.
+
+
+## Using Ansible
+### Installing ansible (RHEL)
+
+The control node will be your machine, and all the remote nodes will be managed nodes. 
+
+- Install **podman** and **python3-pip**
+    
+    `sudo dnf install podman python3-pip -y`
+- Create a virtual environment, and activate it
+
+    `python3 -m venv ~/.ansible_venv`<br>
+    `source ~/.ansible_venv/bin/activate`
+
+- Install other prerequisites
+
+    `sudo dnf install gcc python3-devel libffi-devel -y`<br>
+    `sudo subscription-manager repos --enable codeready-builder-for-rhel-10-aarch64-rpms`<br>
+    `sudo dnf install oniguruma-devel -y`<br>
+
+- Install Ansible & Navigator
+    `pip install --upgrade pip`<br>
+    `pip install ansible-navigator ansible-core`
+
+
+
 
 
 ## Author

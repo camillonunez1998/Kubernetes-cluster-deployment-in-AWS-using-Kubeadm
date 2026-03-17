@@ -1,0 +1,16 @@
+---
+# --- Kubernetes Nodes Connectivity Check ---
+- name: Verify connection to AWS K8s nodes
+  hosts: all
+  gather_facts: no  # Skip for a faster initial test
+  tasks:
+    - name: 1. Confirm SSH and Python availability
+      ansible.builtin.ping:
+
+    - name: 2. Check remote uptime and kernel version
+      ansible.builtin.command: uname -a
+      register: node_info
+
+    - name: 3. Print node information
+      ansible.builtin.debug:
+        msg: "Node {{ inventory_hostname }} is running: {{ node_info.stdout }}"

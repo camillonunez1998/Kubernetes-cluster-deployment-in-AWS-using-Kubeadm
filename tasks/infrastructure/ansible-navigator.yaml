@@ -1,0 +1,13 @@
+# --- Ansible Navigator Configuration ---
+ansible-navigator:
+  execution-environment:
+    # This image often has better multi-arch support
+    image: quay.io/ansible/creator-ee:latest
+    enabled: true
+    container-engine: podman
+    pull:
+      policy: always
+  ansible:
+    inventory:
+      entries:
+        - ./inventory.ini
