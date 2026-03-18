@@ -1,0 +1,1 @@
+- Revisar como se logro la instalación de Ansible, para documentarla bien

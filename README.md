@@ -28,7 +28,7 @@ Once you've done this, you will have the following VPC architecture available.
 ## Bootstraping the  the cluster
 ### Installing kubeadm
 #### Install prerequistes in each node manually (To do this with Ansible check below)
-- Check the MAC address of each node with `ip link show ens5` (or the name of the network interface indicated in the welcome banner of the ssh connection). You will obtian a number like *06:2b:c0:02:56:93*.
+- Check the MAC address of each node with `ip link show ens5` (or the name of the network interface indicated in the welcome banner of the ssh connection). You will obtain a number like *06:2b:c0:02:56:93*.
 
 - Check the product_UUID with `sudo cat /sys/class/dmi/id/product_uuid`. All the MACs and product_UUID's must be different.
 
@@ -38,9 +38,9 @@ Once you've done this, you will have the following VPC architecture available.
 
 - To install the combo *kubectl + kubelet + kubeadm*, run the script `./admin_with_kubeadm/install_k8s_tools.sh` in every node.
 
-- Configure a *cgroup driver* (control group): We need to make sure the container runtime and the kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`.
+- Configure a *cgroup driver* (control group): We need to make sure the container runtime and the Kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`.
 
-- Install *conntrack* in every node for the prechecks done by kubeadm. This is part of the linux kernel but Ubuntu image doesn't include it.
+- Install *conntrack* in every node for the prechecks done by Kubeadm. This is part of the linux kernel but Ubuntu image doesn't include it.
 
     `sudo apt update`
 
@@ -70,11 +70,11 @@ The control node will be your machine, and all the remote nodes will be managed 
 
 ##### Using Ansible to install prerequsites
 
-- Optionally, run the playbook **check_nodes.yaml** to verify connection with remote mahcines.
+- Optionally, run the playbook **check_nodes.yaml** to verify connection with remote machines.
 
     `ansible-navigator run check_nodes.yaml -i inventory.ini`
 
-- Then, run the ansible playbook that installs all the requirments in the remote machines.
+- Then, run the ansible playbook that installs all the requirements in the remote machines.
 
     `ansible-navigator run k8s_setup.yaml -i inventory.ini`
 
@@ -91,7 +91,7 @@ The control node will be your machine, and all the remote nodes will be managed 
     `sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config`<br>
     `sudo chown $(id -u):$(id -g) $HOME/.kube/config`
 
-- Take a note of the kubeadm join command outputted by kubeadm init. You will need it to join nodes eventually. It look something like this 
+- Take a note of the Kubeadm join command outputted by Kubeadm init. You will need it to join nodes eventually. It look something like this 
 
     `kubeadm join 10.0.1.163:6443 --token **************** \
         --discovery-token-ca-cert-hash sha256:3e3d81e6e7d2b7baef6571ac2ab21e1e397616b1d671dd828c74be38b84f4fb1 `
