@@ -126,7 +126,7 @@ Every service that is created inside the cluster is also assigned a Service Acco
 
 This is specified in `kubeadm-config.yaml`. We used RSA3072.
 
-### Choosing certificate validity perido
+### Choosing certificate validity period
 
 This is specified in `kubeadm-config.yaml`. We used 8760h for regular certs, and 87600h for CAs.
 
