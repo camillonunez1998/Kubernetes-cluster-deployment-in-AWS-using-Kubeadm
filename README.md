@@ -1,9 +1,7 @@
-# Project
-
-The objective of this project is to bootstrap a kubernetes cluster with Kubeadm using AWS as cloud platform.
+# Kubernetes cluster deployment in AWS using Kubeadm
 
 ## Requisites
-- Having installed terraform in your system (Terraform v1.14.7 on linux_arm64. works well).
+- Having installed terraform in your system (Terraform v1.14.7 on linux_arm64 works well).
 
 ## Preliminaries
 The first step is to build the infrastructure. We require 3 EC2 instances, one for the Control node, and two for the Worker nodes. The infrastructure is defined in `tasks/infrastructure/main.tf`.
@@ -14,11 +12,12 @@ To deploy it, make sure you have your AWS credentials in `~/.aws/credentials` in
 `aws_access_key_id = *****************`<br>
 `aws_secret_access_key = ******************`
 
-You will also need an ssh key `~/.ssh/daily-key`. This key will be necessary to tunnel with machines within the cluster.  
+You will also need an ssh key `~/.ssh/daily-key`. This key will be necessary to tunnel with machines inside the cluster.  
 
 Then, within `tasks/infrastructure/main.tf` execute:
-- `terraform init`
-- `terraform apply` 
+
+`terraform init`<br>
+`terraform apply` 
 
 Once you've done this, you will have the following VPC architecture available.
 
@@ -27,7 +26,6 @@ Once you've done this, you will have the following VPC architecture available.
 ![alt text](./tasks/images/infra.svg)
 
 ## Bootstraping the  the cluster
-
 ### Installing kubeadm
 #### Install prerequistes in each node manually (To do this with Ansible check below)
 - Check the MAC address of each node with `ip link show ens5` (or the name of the network interface indicated in the welcome banner of the ssh connection). You will obtian a number like *06:2b:c0:02:56:93*.
@@ -48,15 +46,39 @@ Once you've done this, you will have the following VPC architecture available.
 
     `sudo apt install conntrack -y`
 
-#### Install prerequisites for the nodes with Ansible
+#### Install prerequisites in each node using Ansible
+##### Installing ansible (RHEL)
+The control node will be your machine, and all the remote nodes will be managed nodes. 
 
-**Comando para lanzar Ansible **
+- Install **podman** and **python3-pip**
+    
+    `sudo dnf install podman python3-pip -y`
+- Create a virtual environment, and activate it
 
-##### Creating a cluster with kubeadm
+    `python3 -m venv ~/.ansible_venv`<br>
+    `source ~/.ansible_venv/bin/activate`
 
-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+- Install other prerequisites
 
-#### Install a single control plane K8s cluster
+    `sudo dnf install gcc python3-devel libffi-devel -y`<br>
+    `sudo subscription-manager repos --enable codeready-builder-for-rhel-10-aarch64-rpms`<br>
+    `sudo dnf install oniguruma-devel -y`<br>
+
+- Install Ansible & Navigator
+    `pip install --upgrade pip`<br>
+    `pip install ansible-navigator ansible-core`
+
+##### Using Ansible to install prerequsites
+
+- Optionally, run the playbook **check_nodes.yaml** to verify connection with remote mahcines.
+
+    `ansible-navigator run check_nodes.yaml -i inventory.ini`
+
+- Then, run the ansible playbook that installs all the requirments in the remote machines.
+
+    `ansible-navigator run k8s_setup.yaml -i inventory.ini`
+
+### Install your K8s cluster with kubeadm
 - Define a network setup for your pods. We defined this also in `./tasks/admin_with_kubeadm/kubeadm-config.yaml` with the CIDR *192.168.0.0/16* to make it clear that the pod network is fully isolated from the VPC network.
 
 - Initialize your control plane node 
@@ -88,23 +110,17 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-clu
 - Now your cluster is ready to host the microservices of your application! To finish your session you can simply destroy your AWS resources with terraform (assuming you have already stopped all the resources from your applications).
 
 ## Certificate management with kubeadm
+### How certificates are used by your cluster
 
-https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/
+There is a total of 10 mandatory certificates when creating a cluster manually (modulo the number of nodes).
 
-### PKI certificates and requirements
-https://kubernetes.io/docs/setup/best-practices/certificates/ 
+<!-- *Dibujo de la dinamica de los certificados* -->
 
-#### How certificates are used by your cluster
+### Certificates for user accounts
 
-*Note:* There is a total of 10 mandatory certificates when creating a cluster manually (modulo the number of nodes).
+<!-- *Dibujo* (son las cuentas de la componentes internas del cluser + los usuarios humanos). -->
 
-*Dibujo de la dinamica de los certificados*
-
-#### Certificates for user accounts
-
-*Dibujo* (son las cuentas de la componentes internas del cluser + los usuarios humanos).
-
-*Note:* Every service that is created inside the cluster is also assigned a Service Account.
+Every service that is created inside the cluster is also assigned a Service Account.
 
 ### Choosing encryption algorithm (only for PKI certs, no secrets in general)
 
@@ -114,41 +130,10 @@ This is specified in `kubeadm-config.yaml`. We used RSA3072.
 
 This is specified in `kubeadm-config.yaml`. We used 8760h for regular certs, and 87600h for CAs.
 
-
-## Using Ansible
-### Installing ansible (RHEL)
-
-The control node will be your machine, and all the remote nodes will be managed nodes. 
-
-- Install **podman** and **python3-pip**
-    
-    `sudo dnf install podman python3-pip -y`
-- Create a virtual environment, and activate it
-
-    `python3 -m venv ~/.ansible_venv`<br>
-    `source ~/.ansible_venv/bin/activate`
-
-- Install other prerequisites
-
-    `sudo dnf install gcc python3-devel libffi-devel -y`<br>
-    `sudo subscription-manager repos --enable codeready-builder-for-rhel-10-aarch64-rpms`<br>
-    `sudo dnf install oniguruma-devel -y`<br>
-
-- Install Ansible & Navigator
-    `pip install --upgrade pip`<br>
-    `pip install ansible-navigator ansible-core`
-
-
-
-
-
 ## Author
-
 
 [Camilo Nuñez](https://github.com/camillonunez1998)
 
-
 ## License
-
 
 [MIT](./LICENSE)
