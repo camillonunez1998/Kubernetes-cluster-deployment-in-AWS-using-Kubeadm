@@ -3,11 +3,10 @@
 The objective of this project is to bootstrap a kubernetes cluster with Kubeadm using AWS as cloud platform.
 
 ## Requisites
-- Having installed terraform in your system (version **???**. works well).
+- Having installed terraform in your system (Terraform v1.14.7 on linux_arm64. works well).
 
 ## Preliminaries
-
-The first step is to build the infrastructure. for simplicity, we will make use of one Master node, and two Worker nodes. The infrastructure defined in `tasks/infrastructure/main.tf` provides it.
+The first step is to build the infrastructure. We require 3 EC2 instances, one for the Control node, and two for the Worker nodes. The infrastructure is defined in `tasks/infrastructure/main.tf`.
 
 To deploy it, make sure you have your AWS credentials in `~/.aws/credentials` in the format:
 
@@ -25,16 +24,12 @@ Once you've done this, you will have the following VPC architecture available.
 
 **Note:** When terraform finishes creating the infrastructure, it will print the Public IP address of all the VMs.
 
-![alt text](infra.svg)
+![alt text](./tasks/images/infra.svg)
 
-# Administer a cluster
-
-## Administering with kubeadm
+## Bootstraping the  the cluster
 
 ### Installing kubeadm
-
-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
-
+#### Install prerequistes in each node manually (To do this with Ansible check below)
 - Check the MAC address of each node with `ip link show ens5` (or the name of the network interface indicated in the welcome banner of the ssh connection). You will obtian a number like *06:2b:c0:02:56:93*.
 
 - Check the product_UUID with `sudo cat /sys/class/dmi/id/product_uuid`. All the MACs and product_UUID's must be different.
@@ -47,19 +42,22 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 
 - Configure a *cgroup driver* (control group): We need to make sure the container runtime and the kubelet component match the *cgroup* driver. For this purpose, the best practice is to specify it in the configuration manifest located in `./tasks/admin_with_kubeadm/kubeadm-config.yaml`.
 
-### Creating a cluster with kubeadm
-
-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
-
-#### Install a single control plane K8s cluster
-
-- Define a network setup for your pods. We defined this also in `./tasks/admin_with_kubeadm/kubeadm-config.yaml` with the CIDR *192.168.0.0/16* to make it clear that the pod network is fully isolated from the VPC network.
-
 - Install *conntrack* in every node for the prechecks done by kubeadm. This is part of the linux kernel but Ubuntu image doesn't include it.
 
     `sudo apt update`
 
     `sudo apt install conntrack -y`
+
+#### Install prerequisites for the nodes with Ansible
+
+**Comando para lanzar Ansible **
+
+##### Creating a cluster with kubeadm
+
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+
+#### Install a single control plane K8s cluster
+- Define a network setup for your pods. We defined this also in `./tasks/admin_with_kubeadm/kubeadm-config.yaml` with the CIDR *192.168.0.0/16* to make it clear that the pod network is fully isolated from the VPC network.
 
 - Initialize your control plane node 
 
