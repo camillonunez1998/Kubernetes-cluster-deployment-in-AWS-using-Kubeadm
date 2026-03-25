@@ -1,2 +1,3 @@
-- Revisar como se logro la instalación de Ansible, para documentarla bien
+- Revisar como se logro la instalación de Ansible, para documentarla bien.
 - Arreglar el Path del kube-config.yaml. Por lo menos sé que está incorrecto en la instalacion manual de los requisitos de los servidores.
+- Añadir al gitignore kuberenetes.
